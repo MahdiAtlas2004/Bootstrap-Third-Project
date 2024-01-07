@@ -72,6 +72,41 @@ body {
   border-color: #0d6efd;
 }
 
+/* Contact Us */
+.contact hr {
+  width: 80px;
+  height: 5px;
+}
+
+.contact .card {
+  border-top: 4px solid #0d6efd;
+  border-bottom: 4px solid #0d6efd;
+  padding: 30px;
+  border-radius: 0.25rem;
+  background: rgba(225, 225, 225, 0.06);
+  width: 100%;
+  box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
+}
+
+.contact .card i {
+  font-size: 20px;
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  background: rgba(225, 225, 225, 0.01);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+
+.contact .card i:hover {
+  background: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+}
+
 @media (max-width: 575px) {
   .header .countdown div {
     width: 70px;
