@@ -29,8 +29,48 @@
         <div class="container">
             <div class="row text-center">
                 <h2 class="fw-bold mb-4"><span class="text-primary">لورم ایپسوم</span> <span id="text"></span></h2>
-                <p class="lh-lg">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،</p>
+                <p class="lh-lg">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان
+                    گرافیک است،</p>
             </div>
+
+            <div x-data="countdown" class="row justify-content-center countdown my-5">
+                <div>
+                    <h3 class="fw-bold" x-text="days">24</h3>
+                    <h5 class="mb-0">روز</h5>
+                </div>
+                <div>
+                    <h3 class="fw-bold" x-text="hours"></h3>
+                    <h5 class="mb-0">ساعت</h5>
+                </div>
+                <div>
+                    <h3 class="fw-bold" x-text="minutes"></h3>
+                    <h5 class="mb-0">دقیقه</h5>
+                </div>
+                <div>
+                    <h3 class="fw-bold" x-text="seconds"></h3>
+                    <h5 class="mb-0">ثانیه</h5>
+                </div>
+            </div>
+
+            <div class="row justify-content-center text-center">
+                <div class="col-12">
+                    <h6 class="mb-4">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</h6>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control">    
+                        <button class="btn btn-primary" type="button">عضویت</button>
+                    </div>
+                </div>
+                <div class="col-12 social-links mt-5">
+                    <a href="#"><i class="lh-0 bi bi-twitter"></i></a>
+                    <a href="#"><i class="lh-0 bi bi-facebook"></i></a>
+                    <a href="#"><i class="lh-0 bi bi-instagram"></i></a>
+                    <a href="#"><i class="lh-0 bi bi-linkedin"></i></a>
+                </div>
+
+            </div>
+
         </div>
     </header>
 
@@ -41,11 +81,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-        
+
     <script src="https://unpkg.com/ityped@1.0.3"></script>
     <script>
-          const textElement = document.querySelector('#text');
-          ityped.init(textElement, { strings: ['متن ساختگی با تولید سادگی','متن ساختگی با تولید','متن ساختگی...'] });
+        const textElement = document.querySelector('#text');
+        ityped.init(textElement, { strings: ['متن ساختگی با تولید سادگی', 'متن ساختگی با تولید', 'متن ساختگی...'] });
     </script>
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
@@ -63,7 +103,32 @@
                     })
                 }
 
-            }))
+            })),
+                Alpine.data('countdown', () => ({
+                    days: '00',
+                    hours: '00',
+                    minutes: '00',
+                    seconds: '00',
+
+                    init() {
+                        let endDate = new Date(2024, 7, 1).getTime();
+                        setInterval(() => {
+                            let nowDate = new Date().getTime();
+                            let time = endDate - nowDate;
+
+                            if (time >= 0) {
+                                this.days = this.format(Math.floor(time / (1000 * 60 * 60 * 24)));
+                                this.hours = this.format(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+                                this.minutes = this.format(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
+                                this.seconds = this.format(Math.floor((time % (1000 * 60)) / 1000));
+                            }
+                        }, 1000);
+                    },
+
+                    format(num) {
+                        return num < 10 ? '0' + num : num;
+                    }
+                }))
         })
     </script>
 </body>

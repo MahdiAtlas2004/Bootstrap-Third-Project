@@ -22,6 +22,10 @@ body {
   background-attachment: fixed;
 }
 
+.text-gray {
+  color: #44494e !important;
+}
+
 .lh-0{
   line-height: 0;
 }
@@ -40,8 +44,40 @@ body {
   padding-top: 90px;
 }
 
-.text-gray {
-  color: #44494e !important;
+.header .countdown div {
+  text-align: center;
+  width: 100px;
+  border: 2px solid rgba(225, 225, 225, 0.8);
+  border-radius: 8px;
+  margin: 10px 10px;
+  padding: 15px 0;
+}
+
+.header .social-links a{
+  font-size: 20px;
+  color: #fff;
+  margin: 0 3px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(225, 225, 225, 0.5);
+  transition: all 0.3s;
+}
+
+.header .social-links a:hover {
+  background: #0d6efd;
+  border-color: #0d6efd;
+}
+
+@media (max-width: 575px) {
+  .header .countdown div {
+    width: 70px;
+    margin: 10px 8px;
+    padding: 10px 0;
+  } 
 }
 
 /* iTyped.js */
