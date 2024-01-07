@@ -11,4 +11,27 @@
 
 body {
   font-family: "Vazir" !important;
+  background: url(../images/bg.jpg) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+.dark .dark-bg-body-dark {
+  background: url(../images/bg-dark.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.lh-0{
+  line-height: 0;
+}
+
+.darkmode-switch {
+  width: 2.5em !important;
+  height: 1.5rem !important;
+}
+
+.dark .dark-text-white {
+  color: white;
+}
+
