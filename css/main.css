@@ -143,3 +143,20 @@ body {
   }
 }
 
+footer {
+  width: 100%;
+  text-align: center;
+  direction: ltr;
+}
+
+footer div{
+  color: black;
+  background-color: rgba(225, 225, 225, 0.06);
+}
+
+footer a {
+  color: black;
+}
+footer a:hover {
+  color: white;
+}
